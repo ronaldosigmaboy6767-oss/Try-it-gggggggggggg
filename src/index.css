@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --font-tech: 'Share Tech Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-mono);
+    margin: 0;
+    padding: 0;
+    background-color: #050a06;
+    color: #4ade80;
+    overflow-x: hidden;
+  }
+}
+
+/* Green Phosphor Glow Utilities */
+.ink-glow-subtle {
+  text-shadow: 0 0 6px currentColor;
+}
+
+.ink-glow-strong {
+  text-shadow: 0 0 4px currentColor, 0 0 12px currentColor, 0 0 24px rgba(74, 222, 128, 0.4);
+}
+
+.box-glow-green {
+  box-shadow: 0 0 15px -3px rgba(34, 197, 94, 0.25), inset 0 0 15px -5px rgba(34, 197, 94, 0.15);
+}
+
+.box-glow-active {
+  box-shadow: 0 0 25px 2px rgba(34, 197, 94, 0.4), inset 0 0 20px -2px rgba(34, 197, 94, 0.25);
+}
+
+/* CRT Scanlines Overlay */
+.crt-scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.45) 50%
+  ),
+  linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
+  );
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+}
+
+/* CRT Screen curvature vignette */
+.crt-vignette {
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.85);
+  pointer-events: none;
+}
+
+/* Custom terminal scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(5, 15, 8, 0.9);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(34, 197, 94, 0.35);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(74, 222, 128, 0.7);
+}
+
+@keyframes cursorBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.animate-cursor {
+  animation: cursorBlink 1s infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.9; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}

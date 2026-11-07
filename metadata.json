@@ -1,0 +1,6 @@
+{
+  "name": "Green Ink Python Counter 10^88",
+  "description": "An interactive green ink terminal executing the cosmic while-loop counter from 10^88 to 1 with live digit streaming, BigInt precision, and cosmological telemetry.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
